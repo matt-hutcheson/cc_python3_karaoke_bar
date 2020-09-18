@@ -18,4 +18,10 @@ class Room():
         self.song_list.clear()
         self.guest_list.clear()
 
+    def capacity_check(self):
+        if len(self.guest_list) <= self.capacity:
+            return True
+        else:
+            return False
+        
     
