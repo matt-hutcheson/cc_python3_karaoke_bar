@@ -17,3 +17,5 @@ class Room():
     def reset_room(self):
         self.song_list.clear()
         self.guest_list.clear()
+
+    

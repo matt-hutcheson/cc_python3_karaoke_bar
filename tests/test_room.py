@@ -44,3 +44,18 @@ class TestRoom(unittest.TestCase):
         self.room_tropical.reset_room()
         self.assertEqual(0, len(self.room_tropical.guest_list))
         self.assertEqual(0, len(self.room_tropical.song_list))
+
+    def test_room_capacity_allowed__True(self):
+        self.room_magma.check_in_guest(self.test_guest)
+        self.room_magma.check_in_guest(self.test_guest)
+        self.room_magma.check_in_guest(self.test_guest)
+        self.room_magma.check_in_guest(self.test_guest)
+        self.assertEqual(True, self.room_magma.capacity_check())
+
+    def test_room_capacity_exceeded__False(self):
+        self.room_magma.check_in_guest(self.test_guest)
+        self.room_magma.check_in_guest(self.test_guest)
+        self.room_magma.check_in_guest(self.test_guest)
+        self.room_magma.check_in_guest(self.test_guest)
+        self.room_magma.check_in_guest(self.test_guest)
+        self.assertEqual(False, self.room_magma.capacity_check())
