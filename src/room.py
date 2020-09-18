@@ -4,6 +4,8 @@ class Room():
         self.guest_list = []
         self.song_list = []
         self.capacity = capacity
+        self.cash_take = 0.00
+        self.entry_fee = 15.00
 
     def check_in_guest(self, guest_to_add):
         check = self.capacity_check()
@@ -26,4 +28,5 @@ class Room():
         else:
             return False
         
-    
+    def pay_entry_fee(self, guest_to_pay):
+        guest_to_pay.pay(self.entry_fee)

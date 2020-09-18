@@ -50,3 +50,7 @@ class TestRoom(unittest.TestCase):
     def test_room_capacity_exceeded(self):
         self.room_magma.guest_list = [self.test_guest, self.test_guest, self.test_guest, self.test_guest]
         self.assertEqual(False, self.room_magma.capacity_check())
+
+    def test_pay_entry_fee(self):
+        self.room_tropical.pay_entry_fee(guest_to_pay)
+        self.assertEqual(15.00, self.room_tropical.cash_take)
