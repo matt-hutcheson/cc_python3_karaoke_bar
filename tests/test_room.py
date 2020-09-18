@@ -13,7 +13,7 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(0, len(self.room_tropical.guest_list))
         self.assertEqual(0, len(self.room_tropical.song_list))
 
-    def test_add_guest_to_room(self):
+    def test_check_in_guest_to_room(self):
         test_guest = Guest("Party Bob", 38, 2000.00)
-        self.room_tropical.add_guest(test_guest)
+        self.room_tropical.check_in_guest(test_guest)
         self.assertEqual(1, len(self.room_tropical.guest_list))
