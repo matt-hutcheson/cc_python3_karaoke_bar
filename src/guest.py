@@ -6,3 +6,11 @@ class Guest():
 
     def pay(self, entry_fee):
         self.wallet -= entry_fee
+
+    def check_can_pay(self, price):
+        if self.wallet >= price:
+            return True
+        else:
+            return False
+
+    
