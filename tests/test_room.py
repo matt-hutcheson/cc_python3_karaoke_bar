@@ -54,3 +54,8 @@ class TestRoom(unittest.TestCase):
     def test_pay_entry_fee(self):
         self.room_tropical.pay_entry_fee(self.test_guest)
         self.assertEqual(15.00, self.room_tropical.cash_take)
+
+    def test_entry_fee_low_funds(self):
+        poor_guest = Guest("Poor Bob", 13, 10.00)
+        self.room_tropical.pay_entry_fee(poor_guest)
+        self.assertEqual(0, self.room_tropical.cash_take)

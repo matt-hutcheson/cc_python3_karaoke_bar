@@ -29,5 +29,6 @@ class Room():
             return False
         
     def pay_entry_fee(self, guest_to_pay):
-        guest_to_pay.pay(self.entry_fee)
-        self.cash_take += self.entry_fee
+        if guest_to_pay.check_can_pay(self.entry_fee):
+            guest_to_pay.pay(self.entry_fee)
+            self.cash_take += self.entry_fee
