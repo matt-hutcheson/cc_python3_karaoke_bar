@@ -12,3 +12,7 @@ class Room():
 
     def add_song(self, song_to_add):
         self.song_list.append(song_to_add)
+
+    def reset_room(self):
+        self.song_list.clear()
+        self.guest_list.clear()
