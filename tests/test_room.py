@@ -3,6 +3,8 @@ import unittest
 from src.room import Room
 from src.guest import Guest
 from src.song import Song
+from src.bar import Bar
+from src.drink import Drink
 
 class TestRoom(unittest.TestCase):
     def setUp(self):
@@ -71,3 +73,27 @@ class TestRoom(unittest.TestCase):
     def test_guest_reacts_to_fav_song_new_guest_added(self):
         self.room_tropical.add_song(self.test_song)
         self.assertEqual("Song 2 is Party Bob's tune!!!", self.room_tropical.check_in_guest(self.test_guest))
+
+    def test_sell_drink(self):
+        test_guest = Guest("Drunken Bob", 53, 200.00, "Song 2",20.00)
+        test_beer = Drink("Tennents", 4.00, 2.00)
+        test_bar = Bar("Music and Spirits", 100.00)
+        test_bar.add_drink(test_beer)
+        self.room_tropical.sell_drink(test_beer, test_guest, test_bar)
+        self.assertEqual(4.00, self.room_tropical.cash_take)
+        self.assertEqual(196, test_guest.wallet)
+        self.assertEqual(0, test_bar.stock_count())
+
+    def test_refuse_drunk(self):
+        test_guest = Guest("Really Drunken Bob", 50, 23.00, "Another One Bites The Dust",25.00)
+        test_cocktail = Drink("Depth Charge",8.50, 3.00)
+        test_bar = Bar("Music and Spirits", 100.00)
+        test_bar.add_drink(test_cocktail)
+        self.assertEqual("Beat it drunken scamp!", self.room_tropical.sell_drink(test_cocktail, test_guest, test_bar))
+
+    def test_age_check(self):
+        test_guest = Guest("Young Bob", 13, 1.50, "Three Blind Mice",0.00)
+        test_cocktail = Drink("Depth Charge",8.50, 3.00)
+        test_bar = Bar("Music and Spirits", 100.00)
+        test_bar.add_drink(test_cocktail)
+        self.assertEqual("Beat it scamp!", self.room_tropical.sell_drink(test_cocktail, test_guest, test_bar))

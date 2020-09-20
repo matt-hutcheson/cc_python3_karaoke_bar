@@ -24,14 +24,6 @@ class TestBar(unittest.TestCase):
         self.bar.add_money_to_till(money_to_add)
         self.assertEqual(104.00, self.bar.till)
 
-    def test_sell_drink(self):
-        test_guest = Guest("Drunken Bob", 53, 200.00, "Song 2",20.00)
-        test_drink = self.beer
-        self.bar.sell_drink(self.beer, test_guest)
-        self.assertEqual(104.00, self.bar.till)
-        self.assertEqual(196, test_guest.wallet)
-        self.assertEqual(1, self.bar.stock_count())
-
     def test_add_drink(self):
         self.bar.add_drink(self.beer)
         self.assertEqual(3, len(self.bar.drinks))
@@ -43,10 +35,5 @@ class TestBar(unittest.TestCase):
     def test_stock_count(self):
         self.assertEqual(2, self.bar.stock_count())
 
-    def test_age_check(self):
-        test_guest = Guest("Young Bob", 13, 1.50, "Three Blind Mice",0.00)
-        self.assertEqual("Beat it scamp!", self.bar.sell_drink(self.beer, test_guest))
 
-    def test_refuse_drunk(self):
-        test_guest = Guest("Really Drunken Bob", 50, 23.00, "Another One Bites The Dust",25.00)
-        self.assertEqual("Beat it drunken scamp!", self.bar.sell_drink(self.cocktail, test_guest))
+

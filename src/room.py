@@ -40,3 +40,14 @@ class Room():
         for song in self.song_list:
             if song.title == guest.fav_song:
                 return f"{song.title} is {guest.name}'s tune!!!"
+
+    def sell_drink(self, drink, guest, bar):
+        if guest.age > 18:
+            if guest.drunkeness < 25.00:
+                self.cash_take += drink.price
+                guest.pay(drink.price)
+                bar.remove_drink(drink)
+            else:
+                return "Beat it drunken scamp!"
+        else:
+            return "Beat it scamp!"
