@@ -21,7 +21,9 @@ class Room():
         for guest in self.guest_list:
             return self.guest_reacts_to_favourite_song(guest)
 
-    def reset_room(self):
+    def reset_room(self, bar):
+        bar.till += self.cash_take
+        self.cash_take = 0
         self.song_list.clear()
         self.guest_list.clear()
 

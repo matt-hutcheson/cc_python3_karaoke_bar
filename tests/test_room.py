@@ -41,9 +41,14 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(1, len(self.room_tropical.song_list))
 
     def test_reset_room(self):
-        self.room_tropical.reset_room()
+        test_bar = Bar("Music and Spirits", 100.00)
+        self.room_tropical.cash_take = 100.00
+        self.room_tropical.add_song(self.test_song)
+        self.room_tropical.check_in_guest(self.test_guest)
+        self.room_tropical.reset_room(test_bar)
         self.assertEqual(0, len(self.room_tropical.guest_list))
         self.assertEqual(0, len(self.room_tropical.song_list))
+        self.assertEqual(200.00, test_bar.till)
 
     def test_room_capacity_allowed(self):
         self.room_magma.guest_list = [self.test_guest, self.test_guest, self.test_guest]

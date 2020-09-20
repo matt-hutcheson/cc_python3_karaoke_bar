@@ -3,6 +3,7 @@ class Bar:
         self.name = name
         self.till = till
         self.drinks = []
+        self.rooms = []
 
     def add_money_to_till(self, money_to_add):
         self.till += money_to_add
