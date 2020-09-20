@@ -4,8 +4,8 @@ from src.guest import Guest
 
 class TestGuest(unittest.TestCase):
     def setUp(self):
-        self.guest_loud_bob = Guest("Loud Bob", 23, 200.00, "Song 2")
-        self.guest_shy_bob = Guest("Shy Bob", 18, 1000.00, "Three Blind Mice")
+        self.guest_loud_bob = Guest("Loud Bob", 23, 200.00, "Song 2", 100.00)
+        self.guest_shy_bob = Guest("Shy Bob", 18, 1000.00, "Three Blind Mice", 0.00)
 
     def test_guest_exists(self):
         self.assertEqual("Loud Bob", self.guest_loud_bob.name)
