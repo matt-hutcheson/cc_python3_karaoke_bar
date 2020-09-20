@@ -11,12 +11,15 @@ class Room():
         check = self.capacity_check()
         if check:
             self.guest_list.append(guest_to_add)
+            self.guest_reacts_to_favourite_song(guest_to_add)
 
     def check_out_guest(self, guest_to_remove):
         self.guest_list.remove(guest_to_remove)
 
     def add_song(self, song_to_add):
         self.song_list.append(song_to_add)
+        for guest in self.guest_list:
+            return self.guest_reacts_to_favourite_song(guest)
 
     def reset_room(self):
         self.song_list.clear()
