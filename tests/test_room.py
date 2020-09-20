@@ -67,3 +67,7 @@ class TestRoom(unittest.TestCase):
     def test_guest_reacts_to_fav_song_new_song_added(self):
         self.room_tropical.check_in_guest(self.test_guest)
         self.assertEqual("Song 2 is Party Bob's tune!!!",         self.room_tropical.add_song(self.test_song))
+
+    def test_guest_reacts_to_fav_song_new_guest_added(self):
+        self.room_tropical.add_song(self.test_song)
+        self.assertEqual("Song 2 is Party Bob's tune!!!", self.room_tropical.check_in_guest(self.test_guest))

@@ -11,7 +11,7 @@ class Room():
         check = self.capacity_check()
         if check:
             self.guest_list.append(guest_to_add)
-            self.guest_reacts_to_favourite_song(guest_to_add)
+            return self.guest_reacts_to_favourite_song(guest_to_add)
 
     def check_out_guest(self, guest_to_remove):
         self.guest_list.remove(guest_to_remove)
