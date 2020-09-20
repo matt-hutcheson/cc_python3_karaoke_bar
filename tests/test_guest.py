@@ -1,6 +1,7 @@
 import unittest
 
 from src.guest import Guest
+from src.drink import Drink
 
 class TestGuest(unittest.TestCase):
     def setUp(self):
@@ -27,4 +28,7 @@ class TestGuest(unittest.TestCase):
     def test_guest_has_favourite_song(self):
         self.assertEqual("Song 2", self.guest_loud_bob.fav_song)
 
-    
+    def test_guest_can_pay_drink(self):
+        test_drink = Drink("Blue Lagoon", 15.00, 4.00)
+        self.guest_loud_bob.pay(test_drink.price)
+        self.assertEqual(185.00, self.guest_loud_bob.wallet)

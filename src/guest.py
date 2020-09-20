@@ -6,8 +6,8 @@ class Guest():
         self.fav_song = fav_song
         self.drunkeness = drunkeness
 
-    def pay(self, entry_fee):
-        self.wallet -= entry_fee
+    def pay(self, price_to_pay):
+        self.wallet -= price_to_pay
 
     def check_can_pay(self, price):
         if self.wallet >= price:
