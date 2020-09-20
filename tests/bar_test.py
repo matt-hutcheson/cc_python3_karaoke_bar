@@ -5,13 +5,13 @@ from src.guest import Guest
 
 class TestBar(unittest.TestCase):
     def setUp(self):
-        self.bar = Bar("The Monkey Puzzle", 100.00)
+        self.bar = Bar("Music and Spirits", 100.00)
         self.beer = Drink("Tennents", 4.00, 2.00)
         self.cocktail = Drink("Depth Charge",8.50, 3.00)
         self.bar.drinks = [self.beer, self.cocktail]
 
     def test_bar_has_name(self):
-        self.assertEqual("The Monkey Puzzle", self.bar.name)
+        self.assertEqual("Music and Spirits", self.bar.name)
 
     def test_bar_has_till(self):
         self.assertEqual(100.00, self.bar.till)
@@ -25,7 +25,7 @@ class TestBar(unittest.TestCase):
         self.assertEqual(104.00, self.bar.till)
 
     def test_sell_drink(self):
-        test_guest = guest("Drunken Bob", 200, 53, 20.00)
+        test_guest = Guest("Drunken Bob", 53, 200.00, "Song 2",20.00)
         test_drink = self.beer
         self.bar.sell_drink(self.beer, test_guest)
         self.assertEqual(104.00, self.bar.till)
@@ -44,9 +44,9 @@ class TestBar(unittest.TestCase):
         self.assertEqual(2, self.bar.stock_count())
 
     def test_age_check(self):
-        test_guest = Guest("Young Bob", 1.50, 13, 0.00)
+        test_guest = Guest("Young Bob", 13, 1.50, "Three Blind Mice",0.00)
         self.assertEqual("Beat it scamp!", self.bar.sell_drink(self.beer, test_guest))
 
     def test_refuse_drunk(self):
-        test_guest = Guest("Really Drunken Bob", 50.00, 23.00, 25.00)
+        test_guest = Guest("Really Drunken Bob", 50, 23.00, "Another One Bites The Dust",25.00)
         self.assertEqual("Beat it drunken scamp!", self.bar.sell_drink(self.cocktail, test_guest))

@@ -11,7 +11,7 @@ class Bar:
         if guest.age > 18:
             if guest.drunkeness < 25.00:
                 self.add_money_to_till(drink.price)
-                guest.remove_money_from_guest_wallet(drink.price)
+                guest.pay(drink.price)
                 self.remove_drink(drink)
             else:
                 return "Beat it drunken scamp!"
