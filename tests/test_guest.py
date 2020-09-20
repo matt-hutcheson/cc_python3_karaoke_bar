@@ -32,3 +32,8 @@ class TestGuest(unittest.TestCase):
         test_drink = Drink("Blue Lagoon", 15.00, 4.00)
         self.guest_loud_bob.pay(test_drink.price)
         self.assertEqual(185.00, self.guest_loud_bob.wallet)
+
+    def test_guest_can_increase_drunkeness(self):
+        test_drink = Drink("Blue Lagoon", 15.00, 4.00)
+        self.guest_loud_bob.increase_drunkeness(test_drink.alcohol_units)
+        self.assertEqual(104.00, self.guest_loud_bob.drunkeness)

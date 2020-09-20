@@ -15,4 +15,5 @@ class Guest():
         else:
             return False
 
-    
+    def increase_drunkeness(self, alcohol_units):
+        self.drunkeness += alcohol_units
