@@ -59,3 +59,7 @@ class TestRoom(unittest.TestCase):
         poor_guest = Guest("Poor Bob", 13, 10.00, "Money for Nothing")
         self.room_tropical.pay_entry_fee(poor_guest)
         self.assertEqual(0, self.room_tropical.cash_take)
+
+    def test_guest_reacts_to_favourite_song(self):
+        self.room_tropical.add_song(self.test_song)
+        self.assertEqual("Song 2 is Party Bob's tune!!!", self.room_tropical.guest_reacts_to_favourite_song(self.test_guest))
