@@ -52,4 +52,4 @@ class Room():
             else:
                 return "Beat it drunken scamp!"
         else:
-            return "Beat it scamp!"
+            return "Beat it young scamp!"

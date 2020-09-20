@@ -101,4 +101,4 @@ class TestRoom(unittest.TestCase):
         test_cocktail = Drink("Depth Charge",8.50, 3.00)
         test_bar = Bar("Music and Spirits", 100.00)
         test_bar.add_drink(test_cocktail)
-        self.assertEqual("Beat it scamp!", self.room_tropical.sell_drink(test_cocktail, test_guest, test_bar))
+        self.assertEqual("Beat it young scamp!", self.room_tropical.sell_drink(test_cocktail, test_guest, test_bar))
